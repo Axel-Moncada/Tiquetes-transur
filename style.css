@@ -1,0 +1,125 @@
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #DA4914;
+   
+}
+
+header{
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-content: center;
+    align-content: center;
+    border-radius: 20px;
+    width: 70%;
+    padding: 5px 30px;
+}
+ h1{
+    color: white;
+    font-size: 42px;
+ }
+.horas{
+    margin: 10px 0px auto;
+
+}
+.horas p{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.oruta{
+    font-size: 22px;
+}
+.oruta p{
+    margin: 0;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.oruta select{
+    border-radius: 20px;
+    font-size: 18px;
+    margin: 0 auto;
+    padding: 5px 14px;
+}
+.odestino{
+    font-size: 22px;
+}
+.odestino p{
+    margin-top: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.odestino select{
+    border-radius: 20px;
+    font-size: 18px;
+    margin: 0 auto;
+    padding: 5px 14px;
+}
+
+
+.valor{
+    margin-top: 18px;
+    border-top: 3px solid rgb(204, 204, 204);
+    padding: 5px 30px;
+
+}
+
+.valor p{
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.valor h3{
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+.contein button{
+    background-color: #006650;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 15px 35px;
+    margin-bottom: 20px;
+    border: none;
+    width: 80%;
+    font-weight: 700;
+}
+.contein button:hover{
+    background-color: #DA4914;
+    color: white;
+}
+select option{
+    color: black;
+    background-color: #dedede;
+}
+#p-anchicaya{
+    display:none ;
+}
+#p-buenav{
+    display:none ;
+}
+#p-baires{
+    display:none ;
+}
+#p-dagua{
+    display:none ;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiquetes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="assets.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Tiquetes</h1>
+    </header>
+
+    <section class="contein">
+        
+        <div class="horas">
+            <p>Fecha</p>
+            <p id="fecha"></p>
+            <p>Hora</p>
+            <p id="hora"></p>
+        </div>
+        <p>Despacho:</p>
+        <div class="oruta">
+             <p>Origen ruta</p>
+             <select name="Origen" id="corigen">
+                <option value="cali">Cali</option>
+                <option value="buenaventura">Buenaventura</option>
+                <option value="jamundi">Jamundi</option>
+                <option value="dagua">Dagua</option>
+                <option value="queremal">Queremal</option>
+                <option value="suarez">Suarez</option>
+                <option value="baires">Buenos Aires</option>
+                <option value="timba">Timba</option>
+                <option value="ptejada">Puerto Tejada</option>
+                <option value="santander">Santander</option>
+                <option value="robles">Robles</option>
+                <option value="cisneros">Cisnesros</option>
+                <option value="sbernardo">San bernardo</option>
+                <option value="bitaco">Bitaco</option>
+                <option value="lomitas">Lomitas</option>
+             </select>
+        </div>
+        <div class="odestino">
+            <p>Destino</p>
+            <select name="Origen" id="cdestino">
+                <option value="cali">Cali</option>
+                <option value="buenaventura">Buenaventura</option>
+                <option value="jamundi">Jamundi</option>
+                <option value="dagua">Dagua</option>
+                <option value="queremal">Queremal</option>
+                <option value="suarez">Suarez</option>
+                <option value="baires">Buenos Aires</option>
+                <option value="timba">Timba</option>
+                <option value="ptejada">Puerto Tejada</option>
+                <option value="santander">Santander</option>
+                <option value="robles">Robles</option>
+                <option value="cisneros">Cisnesros</option>
+                <option value="sbernardo">San bernardo</option>
+                <option value="bitaco">Bitaco</option>
+                <option value="lomitas">Lomitas</option>
+                <option value="anchicaya">Anchicaya</option>
+             </select>
+             <p>Parada</p>
+             <select name="Origen" id="p-anchicaya">
+                 <option value="bellavista">bellavista</option>
+                 <option value="Cascada">Cascada</option>
+                 <option value="Cauchal">Cauchal</option>
+                 <option value="Danubio">Danubio</option>
+                 <option value="Elsa">Elsa</option>
+                 <option value="Engaño">Engaño</option>
+                 <option value="KM18">KM18</option>
+                 <option value="KM20">KM20</option>
+                 <option value="KM22">KM22</option>
+                 <option value="KM26">KM26</option>
+                 <option value="KM30">KM30</option>
+                 <option value="KM34">KM34</option>
+                 <option value="KM55">KM55</option>
+                 <option value="KM57">KM57</option>
+                 <option value="placer">placer</option>
+                 <option value="queremal">queremal</option>
+                 <option value="rio">rio</option>
+                 <option value="saladito">saladito</option>
+                 <option value="salado">salado</option>
+                 <option value="torre">torre</option>
+              </select>
+
+              <select name="Origen" id="p-buenav">
+                <option value="Achicaya">Achicaya</option>
+                <option value="saladito">saladito</option>
+                <option value="KM26">KM26</option>
+                <option value="KM30">KM30</option>
+                <option value="queremal">queremal</option>
+                
+               </select>
+
+               <select name="Origen" id="p-baires">
+                <option value="bairesp">Buenos aires</option>
+                <option value="robles">Robles</option>
+                <option value="timba">Timba</option>
+                </select>
+                <select name="Origen" id="p-dagua">
+                    <option value="dagua">Dagua</option>
+                    <option value="KM26">KM26</option>
+                    <option value="palmar">Palmar</option>
+                    <option value="saladito">Saladito</option>
+                    </select>
+        </div>
+        <div class="valor">
+        <p>Valor</p>
+        <h3 id="total"></h3>
+        
+    </div>
+        <div>
+            <button onclick="generar()">Generar tiquete</button>
+        </div>
+    </section>
+</body>
+</html>
