@@ -92,7 +92,7 @@ section{
     margin-bottom: 10px;
     margin-top: 0px;
 }
-.contein button{
+.botongen{
     background-color: #006650;
     color: white;
     font-size: 18px;
@@ -103,7 +103,7 @@ section{
     width: 80%;
     font-weight: 700;
 }
-.contein button:hover{
+.botongen:hover{
     background-color: #DA4914;
     color: white;
 }
@@ -121,5 +121,14 @@ select option{
     display:none ;
 }
 #p-dagua{
+    display:none ;
+}
+#p-queremal{
+    display:none ;
+}
+#p-sbernardo{
+    display:none ;
+}
+#p-suarez{
     display:none ;
 }
