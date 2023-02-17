@@ -14,19 +14,44 @@
 
 </head>
 <body>
-    <header>
-        <h1>Tiquetes</h1>
-    </header>
+  <header>
+    <h1>Tiquetes</h1>
+</header>
+<div>
+  <div id="sesion">
+    <h3>Ingresa tu Numero de cedula</h3>
+    <input type="text" id="cc">
+    <button onclick="isesion()">Iniciar sesion</button>
+  </div>
+</div>
+  <div id="contenido">
+    
 
     <section class="contein">
         
         <div class="horas">
+          <div class="horassec">
             <p>Fecha</p>
             <p id="fecha"></p>
+          </div>
+          <div class="horasday">
             <p>Hora</p>
             <p id="hora"></p>
+          </div>
         </div>
-        <p>Despacho:</p>
+        <p class="ccdes">Cc Despachador</p>
+        <p id="ccdes">Cc Despachador</p>
+        <div class="datapersonal">
+          <h2><strong> Datos del pasajero </strong></h2>
+          <input class="nyp"type="text" placeholder="Nombres y apellidos" id="namecampos">
+          <select name="tdco" id="tdoc">
+            <option disabled selected>Tipo de documento</option>
+            <option value="Cedula ciudadania">Cedula de ciudadania</option>
+            <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+            <option value="Cedula de extranjeria">Cedula de extranjeria</option>
+          </select>
+          <input type="number" name="" id="ccnumer" placeholder="Numero de documento">
+        </div>
         <div class="oruta">
              <p>Origen ruta</p>
              <select name="Origen" id="corigen">
@@ -74,7 +99,9 @@
                 <option value="tocota">Tocota</option>
 
              </select>
+             
              <p>Parada</p>
+             <div id="paradastx">
              <select name="Origen" id="p-anchicaya">
                  <option value="bellavista">bellavista</option>
                  <option value="Cascada">Cascada</option>
@@ -140,7 +167,10 @@
                     <option value="timba">Timba</option>
                     <option value="cali">Cali</option>
                  </select>
-                 
+                </div>
+
+
+                <p id="paradasfinal"></p>
         </div>
         <div class="valor">
         <p>Valor</p>
@@ -149,10 +179,11 @@
         
     </div>
         <div>
-            <button class="botongen"onclick="convertirANumero() ">Generar tiquete</button>
-            <button class="botongen" onclick="imprimir()">imprimir</button>
+          <p id="res"></p>
+            <button class="botongen"onclick="generartiquete() ">Generar tiquete</button>
+           
             <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary botongen2" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Cambiar Valor
   </button>
   
@@ -175,6 +206,8 @@
       </div>
     </div>
   </div>
+  <button class="botoncerrar" onclick="imprimir()">Imprimir</button>
+  <button class="botoncerrar" onclick="csesion()">Cerrar sesion</button>
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -183,7 +216,7 @@
 
    
 
-
+  </div>
 
 </body>
 </html>
