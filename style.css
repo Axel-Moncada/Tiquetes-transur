@@ -75,6 +75,28 @@ section{
     display: none;
 }
 
+#ingresodatos{
+    display: none;
+}
+
+
+ #iplanilla  button {
+    background-color: #006650;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 15px 35px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: none;
+    width: 60%;
+    font-weight: 700;
+ }
+ #iplanilla  button:hover {
+    background-color: #DA4914;
+    color: white;
+}
+
 #ccdes{
     margin: 0;
     margin-bottom: 10px;
@@ -203,9 +225,31 @@ section{
     background-color: black;
     color: white;
 }
+.save_data{
+    background-color: #006650;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 15px 35px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: none;
+    width: 60%;
+    font-weight: 700;
+}
+.save_data:hover {
+        background-color: #DA4914;
+        color: white;
+    }
 
+
+    .gtiq{
+        color: #262626;
+        font-size: 34px;
+        margin: 0;
+    }
 .nyp{
-    width: 80%;
+    width: 100%;
     text-align: center;
     border-radius: 10px;
     height: 35px;

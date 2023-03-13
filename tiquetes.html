@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="assets.js"></script>
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
     
 
 </head>
@@ -24,6 +25,7 @@
     <button onclick="isesion()">Iniciar sesion</button>
   </div>
 </div>
+
   <div id="contenido">
     
 
@@ -41,6 +43,29 @@
         </div>
         <p class="ccdes">Cc Despachador</p>
         <p id="ccdes">Cc Despachador</p>
+        <div class="datapersonal" id="iplanilla">
+          <h2><strong> Planilla </strong></h2>
+          <input class="nyp"type="number" placeholder="Numero de planilla" id="planilla_input">
+          <button onclick="iniciarplanillas()">Iniciar</button>
+          
+        </div>
+
+
+
+
+        <div id="ingresodatos">
+
+          <h1 class="gtiq">Generar tiquete</h1>
+          <!-- Button trigger modal -->
+<button type="button" class="save_data" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Ingresar datos
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
         <div class="datapersonal">
           <h2><strong> Datos del pasajero </strong></h2>
           <input class="nyp"type="text" placeholder="Nombres y apellidos" id="namecampos">
@@ -51,7 +76,17 @@
             <option value="Cedula de extranjeria">Cedula de extranjeria</option>
           </select>
           <input type="number" name="" id="ccnumer" placeholder="Numero de documento">
+          <button type="button" onclick="save_data()" class="save_data" data-bs-dismiss="modal" >Guardar</button>
         </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+       
         <div class="oruta">
              <p>Origen ruta</p>
              <select name="Origen" id="corigen">
@@ -206,13 +241,18 @@
       </div>
     </div>
   </div>
-  <button class="botoncerrar" onclick="imprimir()">Imprimir</button>
+  <button class="botoncerrar" onclick="elecciondetiquete()">Imprimir</button>
+  <button class="botoncerrar" onclick="cplanilla()">Cerrar planilla</button>
   <button class="botoncerrar" onclick="csesion()">Cerrar sesion</button>
         </div>
     </section>
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+    
+
 
    
 
