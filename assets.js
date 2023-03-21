@@ -985,10 +985,10 @@ function imprimirsindatos(response){
     function envioplanilla(campo) {
 
         const planilla = campo
-        const cc = localStorage.getItem('cc');
+        const cedula = localStorage.getItem('cc');
 
         const dataInicio= {
-        planilla,cc
+        planilla,cedula
     }
     const dataInicioF= JSON.stringify(dataInicio)
     
@@ -1013,13 +1013,13 @@ const timeout = 8000;
 
 fetch("http://181.62.50.117:7777", requestOptions)
 .then(response => {
-    fetchPending = false;
+    fetchPending = "false";
     return response.text();
   })
 .then(result => {
   // Manejar caso de éxito
   console.log('Éxito:', typeof result);
-  if (result == true){
+  if (result == "true"){
     planillaTrue()
     
   }else{
@@ -1034,13 +1034,6 @@ fetch("http://181.62.50.117:7777", requestOptions)
     console.log('Error:', error);    
   });
 
-  setTimeout(function() {
-    // si la petición sigue pendiente después del tiempo de espera, mostramos el aviso de error correspondiente
-    if (fetchPending) {
-      console.log('Error: tiempo de espera agotado');
-      alert("Error: tiempo de espera agotado")
-      
-    }
-  }, timeout);
+ 
   
     }
