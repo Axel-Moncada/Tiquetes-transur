@@ -483,7 +483,7 @@ function cvalorf(){
 }
     
 
-function imprimir(){
+function imprimir(result){
 
 var now = new Date();
 
@@ -566,11 +566,11 @@ var ccdesloca = localStorage.getItem("cc")
 
 var destinofianal = destinofianl()
 function destinofianl(){
-if (paradasfimp != ""){
-     return variabledestinfinalimp = paradasfimp
-}else{
-    return variabledestinofinalimp= variabledestino
-}
+    if (paradasfimp != "" ){
+        return variabledestinfinalimp = paradasfimp
+    }else{
+        return variabledestinofinalimp= variabledestino
+    }
 }
 doc.addImage(imgdata,1.2,0.4,3.8,1.6)
 // Dibujar el texto centrado horizontalmente y verticalmente
@@ -588,7 +588,7 @@ doc.text("Art. 8 del Decreto No.1165 de 1996" , 1.3,2.8, { align: "center" });
 doc.setFontSize(8);
 doc.setFontType("bold")
 doc.text("Tiquete de viaje No." , 1.5,3.3, { align: "center" });
-doc.text("MIC-000362829" , 1.7,3.6, { align: "center" });
+doc.text(result , 1.7,3.6, { align: "center" });
 
 doc.setFontType("normal")
 doc.setFontSize(9);
@@ -631,8 +631,11 @@ doc.setFontType("normal")
 doc.text(ccdesloca, 0.5,11.7, { align: "center" });
 doc.text("Planilla de viaje # "+ccdesloca, 0.5,12.1, { align: "center" });
 
-codigotiq = 2354689
-doc.save("tiquete-"+codigotiq+".pdf");
+codigotiq = result
+doc.save("tiquete-"+codigotiq)
+doc.autoPrint({variant: 'non-conform'});
+
+borrardatos()
 }
 
 
@@ -688,8 +691,8 @@ function generartiquete(){
 
 
    var myHeaders = new Headers();
-myHeaders.append("Content-Type", "text/plain");
-myHeaders.append("Access-Control-Allow-Origin", "*");
+// myHeaders.append("Content-Type", "text/plain");
+// myHeaders.append("Access-Control-Allow-Origin", "*");
 
 var raw = datafinal ;
 
@@ -700,15 +703,59 @@ var requestOptions = {
   redirect: 'follow'
 };
 
+
+let fetchPending = true;
+const timeout = 8000;
+
 fetch("http://181.62.50.117:7777", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-
-
+.then(response => {
+    fetchPending = false;
+    return response.text();
+  })
+.then(result => {
+  // Manejar caso de éxito
+  console.log('Éxito:', typeof result);
+  document.querySelector('.alert-success').classList.remove('d-none');
+  document.querySelector('.alert-danger').classList.add('d-none');
+  ocultarMensajes();
   elecciondetiquete(result)
-}
+})
+.catch(error => {
+    // Manejar caso de error
+    
+    console.log('Error:', error);
+    document.querySelector('.alert-success').classList.add('d-none');
+    document.querySelector('.alert-danger').classList.remove('d-none');
+    ocultarMensajes();
+  });
 
+  setTimeout(function() {
+    // si la petición sigue pendiente después del tiempo de espera, mostramos el aviso de error correspondiente
+    if (fetchPending) {
+      console.log('Error: tiempo de espera agotado');
+      document.querySelector('.alert-success').classList.add('d-none');
+      document.querySelector('.alert-danger').classList.remove('d-none');
+      ocultarMensajes();
+    }
+  }, timeout);
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+}
+function ocultarMensajes() {
+    setTimeout(function() {
+      document.querySelector('.alert-success').classList.add('d-none');
+      document.querySelector('.alert-danger').classList.add('d-none');
+    }, 5000);
+  }
 
 
 function isesion() {
@@ -730,21 +777,19 @@ function isesion() {
 function iniciarplanillas() {
     var campo = document.getElementById("planilla_input").value
     localStorage.setItem('planilla', campo)
-
-    var vlocal = localStorage.getItem('planilla');
-
-    if ( vlocal.length === 0){
-
-    }else{
-
-        document.getElementById("ingresodatos").style.display = "inline"
-        document.getElementById("contenido").style.display = "inline"
-        document.getElementById("sesion").style.display = "none"
-        leercc()
-    }
+  
+        envioplanilla(campo)
+   
     
 }
 
+function planillaTrue (){
+
+    document.getElementById("ingresodatos").style.display = "inline"
+        document.getElementById("contenido").style.display = "inline"
+        document.getElementById("sesion").style.display = "none"
+        leercc()
+}
 
 function csesion(){
     localStorage.clear();
@@ -783,7 +828,7 @@ function elecciondetiquete(result){
 
 
 
-function imprimirsindatos(){
+function imprimirsindatos(response){
 
     var now = new Date();
     
@@ -813,7 +858,7 @@ function imprimirsindatos(){
     const doc = new jsPDF({
         orientation: "p",
         unit: "cm",
-        format: [10,5.8]
+        format: [12,5.8]
       });
     
     
@@ -886,7 +931,7 @@ function imprimirsindatos(){
     doc.setFontSize(8);
     doc.setFontType("bold")
     doc.text("Tiquete de viaje No." , 1.5,3.3, { align: "center" });
-    doc.text("MIC-000362829" , 1.7,3.6, { align: "center" });
+    doc.text(response , 1.7,3.6, { align: "center" });
     
    
     
@@ -919,13 +964,83 @@ function imprimirsindatos(){
     doc.text(ccdesloca, 0.5,7.3, { align: "center" });
     doc.text("Planilla de viaje # "+ccdesloca, 0.5,8.3, { align: "center" });
     
-    codigotiq = 2354689
+    codigotiq = response
     
-    doc.autoPrint()
-    doc.output("dataurlnewwindow")
-    var pdfData = doc.output();
-    printPdf(pdfData);
-    doc.save("tiquete-"+codigotiq+".pdf");
+    doc.save("tiquete-"+codigotiq)
+    doc.autoPrint({variant: 'non-conform'});
+    
+    borrardatos()
     
     }
+
+
+    function borrardatos(){
+        localStorage.removeItem("numcc")
+        localStorage.removeItem("tipocc")
+         localStorage.removeItem("nombre")
+    }
     
+    
+
+    function envioplanilla(campo) {
+
+        const planilla = campo
+        const cc = localStorage.getItem('cc');
+
+        const dataInicio= {
+        planilla,cc
+    }
+    const dataInicioF= JSON.stringify(dataInicio)
+    
+
+
+   var myHeaders = new Headers();
+// myHeaders.append("Content-Type", "text/plain");
+// myHeaders.append("Access-Control-Allow-Origin", "*");
+
+var raw = dataInicioF ;
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+
+let fetchPending = true;
+const timeout = 8000;
+
+fetch("http://181.62.50.117:7777", requestOptions)
+.then(response => {
+    fetchPending = false;
+    return response.text();
+  })
+.then(result => {
+  // Manejar caso de éxito
+  console.log('Éxito:', typeof result);
+  if (result == true){
+    planillaTrue()
+    
+  }else{
+
+    alert("Error en la planilla o la cedula por favor revisar")
+
+  }
+ 
+  
+})
+.catch(error => {
+    console.log('Error:', error);    
+  });
+
+  setTimeout(function() {
+    // si la petición sigue pendiente después del tiempo de espera, mostramos el aviso de error correspondiente
+    if (fetchPending) {
+      console.log('Error: tiempo de espera agotado');
+      alert("Error: tiempo de espera agotado")
+      
+    }
+  }, timeout);
+  
+    }

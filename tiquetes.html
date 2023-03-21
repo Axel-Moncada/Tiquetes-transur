@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo-color.png">
     <title>Tiquetes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   
@@ -21,7 +22,7 @@
 <div>
   <div id="sesion">
     <h3>Ingresa tu Numero de cedula</h3>
-    <input type="text" id="cc">
+    <input type="number" id="cc">
     <button onclick="isesion()">Iniciar sesion</button>
   </div>
 </div>
@@ -214,36 +215,49 @@
         
     </div>
         <div>
+          
           <p id="res"></p>
-            <button class="botongen"onclick="generartiquete() ">Generar tiquete</button>
-           
-            <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary botongen2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Cambiar Valor
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar valor</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Cambiar valor</p>
-          <input type="number" id="cvalor">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="cvalorf()">Guardar</button>
-        </div>
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary botongen2" data-bs-toggle="modal" data-bs-target="#valorModal">
+  Cambiar Valor
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="valorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar valor</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Cambiar valor</p>
+        <input type="number" id="cvalor">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="cvalorf()" data-bs-dismiss="modal">Guardar</button>
       </div>
     </div>
   </div>
+</div>
+        <div class="alert alert-success d-none" role="alert">
+          La solicitud se completo, Imprimiendo.
+        </div>
+        <div class="alert alert-danger d-none" role="alert">
+          Se produjo un error al procesar la solicitud.
+        </div>
+            <button class="botongen"onclick="generartiquete() ">Generar tiquete</button>
+
+            
+           
+            
   <button class="botoncerrar" onclick="elecciondetiquete()">Imprimir</button>
   <button class="botoncerrar" onclick="cplanilla()">Cerrar planilla</button>
   <button class="botoncerrar" onclick="csesion()">Cerrar sesion</button>
+
+  
+
         </div>
     </section>
   </div>
